@@ -1,4 +1,5 @@
 import React from "react";
+
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
 
@@ -45,7 +46,7 @@ const FilterableProductTable = () => {
   return (
     <>
       <SearchBar />
-      <ProductTable />
+      <ProductTable products={data} />
     </>
   );
 };
