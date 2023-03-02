@@ -1,11 +1,17 @@
 import React from "react";
+import { useRecoilState } from "recoil";
 
 import ProductCategory from "./ProductCategory";
+import { textState } from "./../atoms";
 
 const ProductTable = (props) => {
   const { products } = props;
+  const [text, setText] = useRecoilState(textState);
 
-  const result = products.reduce((acc, cur) => {
+  const filterText = products.filter((product) => product.name === text);
+  const filterSearchText = filterText.length > 0 ? filterText : products;
+
+  const result = filterSearchText.reduce((acc, cur) => {
     if (acc.hasOwnProperty(cur.category)) {
       return {
         ...acc,
