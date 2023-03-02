@@ -14,11 +14,11 @@ const ProductCategory = (props) => {
   return (
     <tbody>
       <tr>
-        <td>{category}</td>
+        <td style={{ fontWeight: "bold" }}>{category}</td>
       </tr>
       {filterStock.map((item, index) => (
         <tr key={index}>
-          <td>{item.name}</td>
+          <td style={{ color: item.stocked ? "" : "red" }}>{item.name}</td>
           <td>{item.price}</td>
         </tr>
       ))}
